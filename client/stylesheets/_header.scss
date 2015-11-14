@@ -1,0 +1,29 @@
+nav#menu {
+  display: block;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  background: $dark-blue;
+  color: white;
+
+  a {
+    font-size: 2rem;
+    color: white;
+    line-height: 60px;
+    opacity: 0.8;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+
+  .sign-out-in, .admin {
+    float: right;
+    font-size: 1.5rem;
+    margin-left: 20px;
+  }
+
+  .logo {
+    float: left;
+  }
+}
