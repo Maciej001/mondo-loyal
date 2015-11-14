@@ -31,7 +31,13 @@ SignIn = React.createClass({
           this.setState({ error: "" + error.reason });
         } else {
           if (this.state.error) { this.setState({ error: false }); }
-          FlowRouter.go("/");
+
+          if (Roles.userIsInRole(Meteor.userId(), ["shop"])) {
+            FlowRouter.go("/shop");  
+          } else {
+            FlowRouter.go("/user");
+          }
+          
         }
       });
     } else {

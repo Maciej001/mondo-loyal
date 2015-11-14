@@ -16,6 +16,7 @@ html,body, #react-root{
   max-width: 1200px;
 }
 
+
 a {
   text-decoration: none;
 }
@@ -45,6 +46,10 @@ button:focus {
 
 .error-msg {
   color: $red !important
+}
+
+.btn-sw {
+  margin-right: 10px;
 }
 
 

@@ -1,14 +1,7 @@
 Meteor.methods({
 
   createNewCard(card) {
-    check(card, {
-      shopId:           String,    
-      logoUrl:          String,
-      cardHeader:       String, 
-      cardDescription:  String,
-      cardSlogan:       String,
-      stampsNumber:     Number
-    })
+
     //   shopId:           
     //   logoUrl:          
     //   cardHeader:       
@@ -18,6 +11,19 @@ Meteor.methods({
 
     Cards.insert(card);
 
+  },
+
+  addCardToCustomer( newCard ) {
+    CustomerCards.insert(newCard);
+  },
+
+  deleteCard( id ) {
+    Cards.remove( id );
+  },
+
+  removeCardFromWallet( id ) {
+    CustomerCards.remove( id );
   }
+
 
 });

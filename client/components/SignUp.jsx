@@ -17,7 +17,8 @@ SignUp = React.createClass({
 
     let user = {
       email:    ReactDOM.findDOMNode( this.refs.email ).value.trim(),
-      password: ReactDOM.findDOMNode( this.refs.password ).value.trim()
+      password: ReactDOM.findDOMNode( this.refs.password ).value.trim(),
+      role: ["user"]
     }
 
     Accounts.createUser( user, ( error, result ) => {
@@ -27,7 +28,13 @@ SignUp = React.createClass({
       } else {
 
         if ( this.state.error ) this.setState({ error: false});
-        FlowRouter.go("/");
+
+        // Redirect to shop or customer 
+        if (Roles.userIsInRole(Meteor.userId(), ["shop"])) {
+          FlowRouter.go("/shop");  
+        } else {
+          FlowRouter.go("/user");
+        }
       }
     });
 

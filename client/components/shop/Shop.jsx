@@ -6,8 +6,8 @@ Shop = React.createClass({
 
     return {
       cardsLoaded: cardsSub.ready(),
-      anyCards: () => Cards.find({ shopId: Meteor.userId() }).count() >= 1,
-      cards: () => Cards.find({ shopId: Meteor.userId() }).fetch()
+      anyCards:     Cards.find({ shopId: Meteor.userId() }).count() >= 1,
+      cards:        Cards.find({ shopId: Meteor.userId() }).fetch()
     }
   },
 
@@ -51,26 +51,34 @@ Shop = React.createClass({
 
         { this.state.addingCard ?
           <NewCardForm parentStateUpdate={ this.parentStateUpdate }/>
-          : ""
+          : 
+
+          // Display all existing cards
+          <div id="cards-list" className="row">
+            <div className="col-xs-12">
+
+            { this.data.anyCards && this.data.cardsLoaded ?
+              <div>
+                { this.data.cards.map( function(card) {
+                    return (
+                      <div className="col-xs-12 col-md-6">
+                        <Card card={ card } parentStateUpdate={ this.parentStateUpdate } key={ card._id }/>
+                      </div>
+                    )
+                  })
+
+                }    
+              </div>            
+
+              : <h4>Let's add New Card!</h4>
+
+            }
+
+            </div>
+          </div>
         }
 
-        <div id="cards-list" className="row">
-          <div className="col-xs-12">
 
-          { this.data.anyCards() && this.data.cardsLoaded ?
-
-            { this.data.cards().map( function(card) {
-                return <Card card={ card } key={ card._id }/>
-              })
-
-            }                
-
-            : <h4>Let's add New Card!</h4>
-
-          }
-
-          </div>
-        </div>
         
       </div>
     )

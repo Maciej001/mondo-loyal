@@ -41,3 +41,12 @@ FlowRouter.route('/shop', {
     })
   }
 });
+
+FlowRouter.route('/user', {
+  name: 'User',
+  action(params) {
+    ReactLayout.render(MainLayout, {
+      content: <Customer />
+    })
+  }
+});

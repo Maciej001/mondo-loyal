@@ -6,7 +6,7 @@ Meteor.startup(() => {
     let users = [
       { name: "Pret a Manger", email: "info@pretamanger.com", roles: ["shop"] },
       { name: "Starbucks", email: "customer_service@starbucks.com", roles: ["shop"] },
-      { name: "Department of Coffee", email: "info@departmentofcoffee", roles: ["shop"] },
+      { name: "Department of Coffee", email: "info@departmentofcoffee.com", roles: ["shop"] },
       { name: "Maciej", email: "maciej@gmail.com", roles: ["user"] }
     ]
 

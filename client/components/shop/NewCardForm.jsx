@@ -114,6 +114,7 @@ NewCardForm = React.createClass({
     if ( !error ) {
       this.setState({ error: false });
       Meteor.call("createNewCard", newCard);
+      this.props.parentStateUpdate({ addingCard: false });
     }
 
   },
@@ -121,17 +122,14 @@ NewCardForm = React.createClass({
   cancel(e) {
     e.preventDefault();
 
-    args = {
-      addingCard: false
-    }
-
-    this.props.parentStateUpdate(args);
+    this.props.parentStateUpdate({ addingCard: false });
   },
 
   render() {
 
     return (
-      <div id="new-card">
+      <div className="row">
+      <div id="new-card" className="col-xs-12 ">
         
         <h1 className="header-grey">New Card</h1>   
         
@@ -198,6 +196,7 @@ NewCardForm = React.createClass({
           </div>
         </div>  
 
+      </div>
       </div>
     )
   }

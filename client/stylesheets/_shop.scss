@@ -7,7 +7,12 @@
 
 }
 
+#cards-list {
+  margin-top: 40px;
+}
+
 .cards-list {
+
   color: $blue;
 
   h2,h3 {
@@ -15,8 +20,7 @@
   }
 }
 
-#card {
-  margin-top: 32px;
+.card {
   max-height: 400px;
   background: $red;
   border-radius: 10px;
@@ -77,6 +81,10 @@
   background: white;
   color: $blue;
   font-size: 3rem;
+}
+
+.card-stamps-empty {
+  color: white;
 }
 
 // Slider

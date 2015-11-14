@@ -1,13 +1,8 @@
 Card = React.createClass({
-  propTypes: {
-    card: {
-      logoUrl:          React.PropTypes.string,
-      cardHeader:       React.PropTypes.string.isRequired,
-      cardDescription:  React.PropTypes.string,
-      cardSlogan:       React.PropTypes.string,
-      stampsNumber:     React.PropTypes.number
-    }
-  }, 
+
+  deleteCard() {
+    Meteor.call("deleteCard", this.props.card._id);
+  },
 
   render() {
 
@@ -18,7 +13,7 @@ Card = React.createClass({
 
     return (
 
-        <div id="card" className="col-xs-12 col-md-6">
+        <div className="col-xs-12 card">
           <div className="card-header">
 
             <div className="card-logo-wrapper">
@@ -39,6 +34,8 @@ Card = React.createClass({
                 })
               }
             </div>
+
+            <button type="button" className="btn btn-danger btn-lcard" onClick={ this.deleteCard }>Delete Card</button>
 
           </div>
         </div>  
