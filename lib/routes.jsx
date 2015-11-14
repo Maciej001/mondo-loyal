@@ -33,11 +33,11 @@ FlowRouter.route('/signin',{
   }
 });
 
-FlowRouter.route('/admin', {
-  name: 'Admin',
+FlowRouter.route('/shop', {
+  name: 'Shop',
   action(params) {
     ReactLayout.render(MainLayout, {
-      content: <Admin />
+      content: <Shop />
     })
   }
 });

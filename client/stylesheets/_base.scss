@@ -20,6 +20,9 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none;
+}
 input:focus,
 select:focus,
 textarea:focus,
@@ -38,6 +41,10 @@ button:focus {
 
 .header-grey {
   color: $grey;
+}
+
+.error-msg {
+  color: $red !important
 }
 
 

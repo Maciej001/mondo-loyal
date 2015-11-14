@@ -4,17 +4,17 @@ Header = React.createClass({
   getMeteorData() {
     return {
       currentUser: Meteor.user(),
-      admin: this.isAdmin()
+      shop: this.isShop()
     }
   },
 
-  isAdmin() {
+  isShop() {
     let user = Meteor.user();
-    return Roles.userIsInRole(Meteor.userId(), ['admin']);
+    return Roles.userIsInRole(Meteor.userId(), ['shop']);
   },
 
-  goToAdmin() {
-    FlowRouter.go('/admin');
+  goToShop() {
+    FlowRouter.go('/shop');
   },
 
   handleSignIn(e) {
@@ -40,8 +40,8 @@ Header = React.createClass({
           <a className="sign-in sign-out-in" href="#" onClick={ this.handleSignIn }>Sign in</a>
         }
 
-        { this.data.admin ? 
-          <a className="admin" href="#" onClick={ this.goToAdmin }>Admin</a>
+        { this.data.shop ? 
+          <a className="shop" href="#" onClick={ this.goToShop }>Shop</a>
           : ""
         }
       </nav>

@@ -24,8 +24,6 @@ sacha:spin
 react
 kadira:flow-router
 kadira:react-layout
-check
-audit-argument-checks
 meteorhacks:fast-render
 markoshust:nouislider
 accounts-password
