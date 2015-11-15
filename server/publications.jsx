@@ -13,3 +13,7 @@ Meteor.publish('cardsItem', ( cardId ) => {
 Meteor.publish('customerCards', ( userId ) => {
   return CustomerCards.find({ customerId: userId });
 });
+
+Meteor.publish('transactions', (account_id) => {
+  return Transactions.find({ account_id: account_id });
+})

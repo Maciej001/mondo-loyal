@@ -32,6 +32,12 @@ SignIn = React.createClass({
         } else {
           if (this.state.error) { this.setState({ error: false }); }
 
+
+          // If regular User - get authorisation
+          if (Roles.userIsInRole(Meteor.userId(), ['user'])) {
+            Meteor.call("getAuthorisationToken");
+          }
+
           if (Roles.userIsInRole(Meteor.userId(), ["shop"])) {
             FlowRouter.go("/shop");  
           } else {

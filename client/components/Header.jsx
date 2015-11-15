@@ -29,11 +29,17 @@ Header = React.createClass({
     });
   },
 
+  goToHooks() {
+    FlowRouter.go('/hooks')
+  },
+
   render() {  
 
     return (  
       <nav id="menu">
-        <a className="logo" href="/">Mondo Loyal</a>
+        <a className="logo" href="/">
+          Mondo Loyal
+        </a>
         { this.data.currentUser ? 
           <a className="sign-out sign-out-in" href="#" onClick={ this.handleSignOut }>Sign out</a>
         :  
@@ -44,6 +50,7 @@ Header = React.createClass({
           <a className="shop" href="#" onClick={ this.goToShop }>Shop</a>
           : ""
         }
+
       </nav>
     ) 
   }

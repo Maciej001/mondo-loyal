@@ -50,3 +50,12 @@ FlowRouter.route('/user', {
     })
   }
 });
+
+FlowRouter.route('/hooks', {
+  name: 'User',
+  action(params) {
+    ReactLayout.render(MainLayout, {
+      content: <Hooks />
+    })
+  }
+});

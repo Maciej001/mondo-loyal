@@ -9,7 +9,7 @@ NewCardForm = React.createClass({
       cardHeader: "Card Header",
       cardDescription: "Card Description",
       cardSlogan: "Another tiny slogan or description",
-      stampsNumber: 8,
+      stampsNumber: 6,
       stamps: [],
       error: false
     }

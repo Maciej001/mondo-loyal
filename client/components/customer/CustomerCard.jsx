@@ -3,11 +3,15 @@ CustomerCard = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
+
+    let marchant = ['Starbucks', 'Pret A Manger', 'Department Of Coffee And Social Affairs']
+
     let fullCardSub = Meteor.subscribe('cards');
 
     return {
-      fullCardLoaded:    fullCardSub.ready(),
-      fullCard:          Cards.findOne({ _id: this.props.card.cardId })
+      fullCardLoaded:       fullCardSub.ready(),
+      fullCard:             Cards.findOne({ _id: this.props.card.cardId }),
+
     }
   },
 
@@ -31,6 +35,8 @@ CustomerCard = React.createClass({
   render() {
     let hasCard = false;
 
+    let stampsCurrent = 0;
+
     let stamps = [];
     // Add actual stamps
     for(let i = 0; i < this.props.card.stampsCurrent; i++) {
@@ -49,7 +55,7 @@ CustomerCard = React.createClass({
             <div className="card-header">
 
               <div className="card-logo-wrapper">
-                <img src={ this.data.fullCard.logoUrl} alt="" className="card-logo" />
+                <img src={ this.data.fullCard.logoUrl } alt="" className="card-logo" />
               </div>
 
               <div className="card-header-wrapper">
